@@ -34,9 +34,9 @@ jobs:
 
       - name: Build APK
         run: |
-          # استخدمنا flet build apk مباشرة مع تبسيط الخيارات
-          # إذا كان مجلد images بجانب main.py فسيتم تضمينه تلقائياً في أغلب الإصدارات
-          flet build apk --project "PixelPulse" --org "com.ageeel.pixel"
+          # استخدام yes | يرسل حرف y تلقائياً لكل سؤال يظهر
+          # إضافة خيارات إضافية لتقليل التفاعل
+          yes | flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --product "PixelPulseApp" --description "Pixel Pulse Agency App"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
