@@ -7,7 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -23,18 +24,19 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0' # إصدار مستقر
+          flutter-version: '3.19.0'
           channel: 'stable'
 
       - name: Install Dependencies
         run: |
           pip install flet
-          flutter doctor # للتأكد من جاهزية البيئة
+          flutter doctor
 
       - name: Build APK
         run: |
-          # إضافة --no-interactive أو تمرير القيم مباشرة يحل مشكلة الـ EOF
-          flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --include-data "assets"
+          # echo "y" لتخطي أي أسئلة تفاعلية قد تسبب خطأ EOF
+          # --include-data "images" لتضمين مجلد الصور الجديد الخاص بك
+          echo "y" | flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --include-data "images"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
