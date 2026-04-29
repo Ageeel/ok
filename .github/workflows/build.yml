@@ -20,14 +20,22 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install dependencies
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0' # إصدار مستقر
+          channel: 'stable'
+
+      - name: Install Dependencies
         run: |
           pip install flet
+          flutter doctor # للتأكد من جاهزية البيئة
 
       - name: Build APK
         run: |
-          flet build apk --project "PixelPulse" --org "com.ageeel.pixel"
-
+          # إضافة --no-interactive أو تمرير القيم مباشرة يحل مشكلة الـ EOF
+          flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --include-data "assets"
+          
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
