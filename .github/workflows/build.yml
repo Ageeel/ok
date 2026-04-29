@@ -34,9 +34,9 @@ jobs:
 
       - name: Build APK
         run: |
-          # echo "y" لتخطي أي أسئلة تفاعلية قد تسبب خطأ EOF
-          # --include-data "images" لتضمين مجلد الصور الجديد الخاص بك
-          echo "y" | flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --include-data "images"
+          # استخدمنا flet build apk مباشرة مع تبسيط الخيارات
+          # إذا كان مجلد images بجانب main.py فسيتم تضمينه تلقائياً في أغلب الإصدارات
+          flet build apk --project "PixelPulse" --org "com.ageeel.pixel"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
