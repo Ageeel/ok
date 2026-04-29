@@ -1,7 +1,7 @@
 name: Build Android APK
 on:
   push:
-    branches: [ main ] # سيتم البناء عند الرفع على فرع main
+    branches: [ main ]
 
 jobs:
   build:
@@ -14,14 +14,19 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Install dependencies
         run: |
           pip install flet
 
       - name: Build APK
         run: |
-          # flet build apk --project "اسم تطبيقك"
-          flet build apk
+          flet build apk --project "PixelPulse" --org "com.ageeel.pixel"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
