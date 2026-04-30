@@ -359,9 +359,4 @@ def main(page: ft.Page):
     page.add(content_area)
     show_page(0)
 
-ft.app(
-    target=main,
-    view=ft.AppView.WEB_BROWSER,
-    assets_dir=".",
-    port=46715
-)
+ft.app(target=main)
