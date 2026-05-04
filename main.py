@@ -323,9 +323,9 @@ def main(page: ft.Page):
                     run_spacing=12,
                     controls=[
                         ft.GestureDetector(
-                            content=ft.Image(src=f"/images/work{i}.jpg", fit=ft.ImageFit.COVER, border_radius=20),
+                            content=ft.Image(src=f"images/work{i}.jpg", fit=ft.ImageFit.COVER, border_radius=20),
                             on_tap=open_image,
-                            data=f"/images/work{i}.jpg"
+                            data=f"images/work{i}.jpg"
                         ) for i in range(1, 5)
                     ]
                 )
