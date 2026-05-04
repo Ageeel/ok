@@ -359,4 +359,5 @@ def main(page: ft.Page):
     page.add(content_area)
     show_page(0)
 
-ft.app(target=main)
+if __name__ == "__main__":
+    ft.app(target=main, assets_dir="assets")
