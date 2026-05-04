@@ -29,15 +29,13 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          # التأكد من تثبيت النسخة 0.19.0 تحديداً
           pip install flet==0.19.0
           flutter doctor
 
       - name: Build APK
         run: |
-          # إضافة --assets assets هو المفتاح لحل مشكلة الشاشة البيضاء
-          # تأكد أن اسم المجلد في ريبو GitHub هو assets (أحرف صغيرة)
-          yes | flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --product "PixelPulseApp" --assets assets
+          # نستخدم الأمر البسيط، و Flet سيسحب مجلد assets تلقائياً
+          yes | flet build apk --project "PixelPulse" --org "com.ageeel.pixel" --product "PixelPulseApp"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
