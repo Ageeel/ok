@@ -1,7 +1,7 @@
 [project]
-name = "نبض البكسل"
+name = "pixel_pulse" # اسم تقني للمجلدات
 
 [build.android]
-product = "نبض البكسل"
+product = "نبض البكسل" # الاسم الذي يظهر للمستخدم
 org = "com.ageeel.pixel"
 icon = "icon.png"
