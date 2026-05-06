@@ -34,7 +34,8 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk --project "pixelpulse" --org "com.ageeel.pixel" --product "نبض البكسل"
+          # سيقوم flet تلقائياً بقراءة "نبض البكسل" من ملف flet_config.toml
+          flet build apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
