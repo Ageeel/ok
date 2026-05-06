@@ -1,0 +1,3 @@
+[build.android]
+product = "نبض البكسل"
+org = "com.ageeel.pixel"
