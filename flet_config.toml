@@ -1,3 +1,7 @@
+[project]
+name = "نبض البكسل"
+
 [build.android]
 product = "نبض البكسل"
 org = "com.ageeel.pixel"
+icon = "icon.png"
