@@ -27,18 +27,22 @@ jobs:
           flutter-version: '3.19.0'
           channel: 'stable'
 
-      - name: Install Flet and Dependencies
+      - name: Install Dependencies
         run: |
           pip install flet==0.19.0
+          # إذا كان لديك ملف requirements.txt يفضل استخدامه:
+          # pip install -r requirements.txt
           pip install "flet[all]" 
 
       - name: Build APK
         run: |
-          # سيقوم flet تلقائياً بقراءة "نبض البكسل" من ملف flet_config.toml
-          flet build apk
+          # نحدد ملف main.py بشكل صريح
+          # تأكد من وجود ملف flet_config.toml في المجلد الرئيسي
+          flet build apk main.py
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: pixel-pulse-apk
+          # مسار المخرجات الافتراضي لـ flet build
           path: build/apk/*.apk
