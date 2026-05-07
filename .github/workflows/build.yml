@@ -30,19 +30,17 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install flet==0.19.0
-          # إذا كان لديك ملف requirements.txt يفضل استخدامه:
+          pip install "flet[all]"
+          # إذا كان لديك مكتبات خارجية أخرى مستخدمة في views، أضفها هنا
           # pip install -r requirements.txt
-          pip install "flet[all]" 
 
       - name: Build APK
         run: |
-          # نحدد ملف main.py بشكل صريح
-          # تأكد من وجود ملف flet_config.toml في المجلد الرئيسي
-          flet build apk main.py
+          # استخدام النقطة يخبر Flet أن يبحث عن flet_config.toml و main.py في المجلد الحالي
+          flet build apk .
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: pixel-pulse-apk
-          # مسار المخرجات الافتراضي لـ flet build
           path: build/apk/*.apk
