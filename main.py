@@ -111,4 +111,4 @@ def main(page: ft.Page):
     show_splash()
 
 # تشغيل التطبيق مع التأكد من مسار الـ assets للخط والصور
-ft.app(target=main, view=ft.AppView.WEB_BROWSER, assets_dir="assets")
+ft.app(target=main, assets_dir="assets")
